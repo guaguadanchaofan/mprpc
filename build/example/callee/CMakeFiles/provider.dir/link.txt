@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/provider.dir/userservice.cc.o CMakeFiles/provider.dir/__/user.pb.cc.o -o /home/guagua/Desktop/mprpc/bin/provider   -L/home/guagua/Desktop/mprpc/lib  -Wl,-rpath,/home/guagua/Desktop/mprpc/lib /home/guagua/Desktop/mprpc/lib/libmprpc.so -lprotobuf 
