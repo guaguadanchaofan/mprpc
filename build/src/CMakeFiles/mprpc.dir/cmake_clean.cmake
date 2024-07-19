@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/guagua/Desktop/mprpc/lib/libmprpc.a"
   "/home/guagua/Desktop/mprpc/lib/libmprpc.pdb"
-  "/home/guagua/Desktop/mprpc/lib/libmprpc.so"
   "CMakeFiles/mprpc.dir/mprpcapplication.cc.o"
   "CMakeFiles/mprpc.dir/mprpcapplication.cc.o.d"
   "CMakeFiles/mprpc.dir/mprpcconfig.cc.o"

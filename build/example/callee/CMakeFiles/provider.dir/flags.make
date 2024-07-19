@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/guagua/Desktop/mprpc/src/include -I/home/guagua/Desktop/mprpc/example
 
-CXX_FLAGS = 
+CXX_FLAGS = -g
 

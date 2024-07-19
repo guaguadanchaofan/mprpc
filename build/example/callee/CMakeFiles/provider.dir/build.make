@@ -108,7 +108,7 @@ provider_EXTERNAL_OBJECTS =
 /home/guagua/Desktop/mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/userservice.cc.o
 /home/guagua/Desktop/mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/__/user.pb.cc.o
 /home/guagua/Desktop/mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/build.make
-/home/guagua/Desktop/mprpc/bin/provider: /home/guagua/Desktop/mprpc/lib/libmprpc.so
+/home/guagua/Desktop/mprpc/bin/provider: /home/guagua/Desktop/mprpc/lib/libmprpc.a
 /home/guagua/Desktop/mprpc/bin/provider: example/callee/CMakeFiles/provider.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/guagua/Desktop/mprpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/guagua/Desktop/mprpc/bin/provider"
 	cd /home/guagua/Desktop/mprpc/build/example/callee && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/provider.dir/link.txt --verbose=$(VERBOSE)

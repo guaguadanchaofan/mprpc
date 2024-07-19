@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.27.4)#设置camke最低版本和项目名称
 project(mprpc)
-
-
+#生成debug版本进行gdb调试
+set(CMAKE_BUILD_TYPE "Debug")
 #设置项目可执行文件的输出路径
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #设置项目库文件输出路径

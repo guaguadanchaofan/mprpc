@@ -11,6 +11,8 @@ public:
     void LoadConfigFile(const char* confif_file);
     //查询配置项信息
     std::string Load(std::string key);
+    //去掉字符串空格
+    void Trim(std::string& key);
 private:
     std::unordered_map<std::string,std::string> _configMap;
 }; 
