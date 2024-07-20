@@ -9,7 +9,6 @@
 #include <string>
 #include <functional>
 #include<unordered_map>
-
 // 框架提供的专门服务发布的rpc服务对象类
 class RpcProvider
 {
@@ -22,7 +21,10 @@ public:
 private:
     // 新的socket连接回调  消息回调
     void OnConnection(const muduo::net::TcpConnectionPtr &);
+    // 已建立的连接用户的读写回调事件，如果远程有一个rpc调用请求 那么onmessag方法就会效应
     void OnMessage(const muduo::net::TcpConnectionPtr &, muduo::net::Buffer *, muduo::Timestamp);
+    //响应回调 Closure的回调操作 用于序列化rpc响应和网络发送
+    void SendRpcResponse(const muduo::net::TcpConnectionPtr &,google::protobuf::Message*);
     // 组合EventLoop
     muduo::net::EventLoop _eventLoop;
 
