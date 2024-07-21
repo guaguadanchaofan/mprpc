@@ -12,13 +12,14 @@ void RpcProvider::NotifyService(google::protobuf::Service *service)
     int methodcnt = pserviceDesc->method_count();
 
     std::cout << "service_name :" << service_name << std::endl;
-
+    LOG_INFO("service_name : %s",service_name.c_str());
     for (int i = 0; i < methodcnt; ++i)
     {
         const google::protobuf::MethodDescriptor *pmethodDesc = pserviceDesc->method(i);
         std::string method_name = pmethodDesc->name();
         service_info._methodMap.insert({method_name, pmethodDesc});
-        std::cout << "method_name :" << method_name << std::endl;
+        LOG_INFO("method_name : %s",method_name.c_str());
+
     }
     service_info._service = service;
     _serviceMap.insert({service_name, service_info});
@@ -39,7 +40,8 @@ void RpcProvider::Run()
 
     // 设置muduo库的线程数量
     server.setThreadNum(4);
-    std::cout << "RpcProvider start service at IP: " << ip << "  Port: " << port << std::endl;
+    LOG_INFO("RpcProvider start service at IP : %s  Port:%d ",ip.c_str(),port);
+
     // 启动网络服务
     server.start();
     _eventLoop.loop();
@@ -79,7 +81,7 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     else
     {
         // 反序列化失败
-        std::cout << "rpc_header_str: " << rpc_header_str << "parse error" << std::endl;
+        LOG_ERROR("rpc_header_str: %s  parse error",rpc_header_str.c_str());
         return;
     }
     // 获取rpc方法参数的字符流数据
@@ -98,14 +100,14 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     auto it = _serviceMap.find(service_name);
     if (it == _serviceMap.end())
     {
-        std::cout << service_name << " is not exist!";
+        LOG_ERROR("%s  is not exist!",service_name.c_str());
         return;
     }
     // 获取服务对象
     auto itm = it->second._methodMap.find(method_name);
     if (itm == it->second._methodMap.end())
     {
-        std::cout << service_name << ":" << method_name << " is not exist!";
+        LOG_ERROR("%s:%s  is not exist!",service_name.c_str(),method_name.c_str());
         return;
     }
     google::protobuf::Service *service = it->second._service;       // 获取serice对象  new UserService
@@ -114,31 +116,30 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     google::protobuf::Message *request = service->GetRequestPrototype(method).New();
     if (!request->ParseFromString(args_str)) // 从args_str中解析参数
     {
-        std::cout << "request parse error! content: " << args_str << std::endl;
+        LOG_ERROR("request parse error! content:%s",args_str.c_str());
     }
-    //获取响应对象
+    // 获取响应对象
     google::protobuf::Message *response = service->GetResponsePrototype(method).New();
-    google::protobuf::Closure* done =  google::protobuf::NewCallback<RpcProvider,
-                                                                    const muduo::net::TcpConnectionPtr&,
-                                                                    google::protobuf::Message *>
-                                                                    (this,&RpcProvider::SendRpcResponse,
-                                                                    conn,response);
+    google::protobuf::Closure *done = google::protobuf::NewCallback<RpcProvider,
+                                                                    const muduo::net::TcpConnectionPtr &,
+                                                                    google::protobuf::Message *>(this, &RpcProvider::SendRpcResponse,
+                                                                                                 conn, response);
 
-    //在框架上根据远端rpc请求,调用对应的对象方法
-    service->CallMethod(method,nullptr,request,response,done);
+    // 在框架上根据远端rpc请求,调用对应的对象方法
+    service->CallMethod(method, nullptr, request, response, done);
 }
 
 void RpcProvider::SendRpcResponse(const muduo::net::TcpConnectionPtr &conn, google::protobuf::Message *response)
 {
     std::string response_str;
-    if(response->SerializeToString(&response_str))//response进行序列化
+    if (response->SerializeToString(&response_str)) // response进行序列化
     {
-        //序列化成功后
-        conn->send(response_str);//通过muduo发送数据
+        // 序列化成功后
+        conn->send(response_str); // 通过muduo发送数据
     }
     else
     {
-        std::cout<<"serialize response_str error!"<<std::endl;
+        LOG_ERROR("serialize response_str error!");
     }
-    conn->shutdown();//模拟http短连接服务 有rpcprovider关闭文件描述符断开连接
+    conn->shutdown(); // 模拟http短连接服务 有rpcprovider关闭文件描述符断开连接
 }

@@ -291,6 +291,27 @@ example/callee/CMakeFiles/provider.dir/userservice.cc.o: \
  /usr/include/c++/13/cassert /usr/local/include/google/protobuf/service.h \
  /home/guagua/Desktop/mprpc/src/include/mprpcapplication.h \
  /home/guagua/Desktop/mprpc/src/include/mprpcconfig.h \
+ /home/guagua/Desktop/mprpc/src/include/mprpcchannel.h \
+ /home/guagua/Desktop/mprpc/src/include/rpcheader.pb.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ /usr/include/arpa/inet.h \
+ /home/guagua/Desktop/mprpc/src/include/mprpcontrller.h \
  /home/guagua/Desktop/mprpc/src/include/rpcprovider.h \
  /usr/local/include/muduo/net/TcpServer.h \
  /usr/local/include/muduo/base/Atomic.h \
@@ -320,25 +341,8 @@ example/callee/CMakeFiles/provider.dir/userservice.cc.o: \
  /usr/include/c++/13/array /usr/include/c++/13/compare \
  /usr/local/include/muduo/net/Buffer.h \
  /usr/local/include/muduo/net/Endian.h \
- /usr/local/include/muduo/net/InetAddress.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/sys/socket.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/x86_64-linux-gnu/bits/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket_type.h \
- /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
- /usr/include/x86_64-linux-gnu/asm/socket.h \
- /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
- /usr/include/linux/stddef.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types.h \
- /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
- /usr/include/asm-generic/posix_types.h \
- /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
- /usr/include/asm-generic/bitsperlong.h \
- /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/local/include/boost/any.hpp \
- /usr/local/include/boost/type_index.hpp \
+ /usr/local/include/muduo/net/InetAddress.h \
+ /usr/local/include/boost/any.hpp /usr/local/include/boost/type_index.hpp \
  /usr/local/include/boost/type_index/stl_type_index.hpp \
  /usr/local/include/boost/type_index/type_index_facade.hpp \
  /usr/local/include/boost/container_hash/hash_fwd.hpp \
@@ -373,4 +377,12 @@ example/callee/CMakeFiles/provider.dir/userservice.cc.o: \
  /usr/local/include/muduo/net/EventLoop.h \
  /usr/local/include/muduo/base/Mutex.h \
  /usr/local/include/muduo/base/CurrentThread.h \
- /usr/local/include/muduo/net/TimerId.h
+ /usr/local/include/muduo/net/TimerId.h \
+ /home/guagua/Desktop/mprpc/src/include/logger.h \
+ /home/guagua/Desktop/mprpc/src/include/lockqueue.h \
+ /usr/include/c++/13/queue /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
+ /usr/include/c++/13/bits/stl_queue.h /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h \
+ /usr/include/c++/13/condition_variable

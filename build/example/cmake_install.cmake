@@ -47,3 +47,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/guagua/Desktop/mprpc/build/example/callee/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/guagua/Desktop/mprpc/build/example/caller/cmake_install.cmake")
+endif()
+

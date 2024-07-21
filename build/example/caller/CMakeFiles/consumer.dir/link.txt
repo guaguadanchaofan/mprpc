@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/consumer.dir/calluserservice.cc.o CMakeFiles/consumer.dir/__/user.pb.cc.o -o /home/guagua/Desktop/mprpc/bin/consumer   -L/home/guagua/Desktop/mprpc/lib  -Wl,-rpath,/home/guagua/Desktop/mprpc/lib /home/guagua/Desktop/mprpc/lib/libmprpc.a -lprotobuf -lmuduo_net -lmuduo_base -lpthread 
