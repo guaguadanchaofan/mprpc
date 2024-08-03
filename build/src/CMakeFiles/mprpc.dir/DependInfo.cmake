@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/guagua/Desktop/mprpc/src/mprpcontrller.cc" "src/CMakeFiles/mprpc.dir/mprpcontrller.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/mprpcontrller.cc.o.d"
   "/home/guagua/Desktop/mprpc/src/rpcheader.pb.cc" "src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o.d"
   "/home/guagua/Desktop/mprpc/src/rpcprovider.cc" "src/CMakeFiles/mprpc.dir/rpcprovider.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/rpcprovider.cc.o.d"
+  "/home/guagua/Desktop/mprpc/src/zookeeperutil.cc" "src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o" "gcc" "src/CMakeFiles/mprpc.dir/zookeeperutil.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

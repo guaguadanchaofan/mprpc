@@ -2,6 +2,7 @@
 #include "mprpcconfig.h"
 #include "mprpcchannel.h"
 #include"mprpcontrller.h"
+#include"rpcprovider.h"
 // mprpc框架的初始化类（提供初始化）
 class MprpcApplication // 单例
 {

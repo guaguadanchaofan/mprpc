@@ -14,7 +14,7 @@ class UserService : public fixbug::UserServiceRpc
     }
 
     // 重写基类userservicerpc的虚函数 下面方法这个都是框架直接调用的
-    virtual void Login(::google::protobuf::RpcController *controller,
+    void Login(::google::protobuf::RpcController *controller,
                        const ::fixbug::LoginRequest *request,
                        ::fixbug::LoginResponse *response,
                        ::google::protobuf::Closure *done)

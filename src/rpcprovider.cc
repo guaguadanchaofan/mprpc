@@ -1,5 +1,6 @@
 #include "rpcprovider.h"
 #include "rpcheader.pb.h"
+#include "zookeeperutil.h"
 // 这里是框架提供的外部使用的，可以发布rpc方法的函数接口
 void RpcProvider::NotifyService(google::protobuf::Service *service)
 {
@@ -12,14 +13,13 @@ void RpcProvider::NotifyService(google::protobuf::Service *service)
     int methodcnt = pserviceDesc->method_count();
 
     std::cout << "service_name :" << service_name << std::endl;
-    LOG_INFO("service_name : %s",service_name.c_str());
+    LOG_INFO("service_name : %s", service_name.c_str());
     for (int i = 0; i < methodcnt; ++i)
     {
         const google::protobuf::MethodDescriptor *pmethodDesc = pserviceDesc->method(i);
         std::string method_name = pmethodDesc->name();
         service_info._methodMap.insert({method_name, pmethodDesc});
-        LOG_INFO("method_name : %s",method_name.c_str());
-
+        LOG_INFO("method_name : %s", method_name.c_str());
     }
     service_info._service = service;
     _serviceMap.insert({service_name, service_info});
@@ -40,7 +40,27 @@ void RpcProvider::Run()
 
     // 设置muduo库的线程数量
     server.setThreadNum(4);
-    LOG_INFO("RpcProvider start service at IP : %s  Port:%d ",ip.c_str(),port);
+    // 把当前rpc几点上要发布的服务全部注册到zk上面，让rpc client可以从zk上发现服务
+    //session timeout 30s zkclient 网络IO线程 1/3*timout时间发送pin消息
+    ZkClient zkcli;
+    zkcli.Start();
+    // server_name为永久性节点  method_name为临时性节点
+    for (auto &sp : _serviceMap)
+    {
+        // /service_name
+        std::string service_path = "/" + sp.first;
+        zkcli.Create(service_path.c_str(), nullptr, 0);
+        for (auto &mp : sp.second._methodMap)
+        {
+            std::string method_path = service_path + "/" + mp.first;
+            char method_path_data[128] = {0};
+            sprintf(method_path_data, "%s:%d", ip.c_str(), port);
+            //ZOO_EPHEMERAL表示znode是个临时性节点
+            zkcli.Create(method_path.c_str(),method_path_data,strlen(method_path_data),ZOO_EPHEMERAL);
+        }
+    }
+
+    LOG_INFO("RpcProvider start service at IP : %s  Port:%d ", ip.c_str(), port);
 
     // 启动网络服务
     server.start();
@@ -81,7 +101,7 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     else
     {
         // 反序列化失败
-        LOG_ERROR("rpc_header_str: %s  parse error",rpc_header_str.c_str());
+        LOG_ERROR("rpc_header_str: %s  parse error", rpc_header_str.c_str());
         return;
     }
     // 获取rpc方法参数的字符流数据
@@ -100,14 +120,14 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     auto it = _serviceMap.find(service_name);
     if (it == _serviceMap.end())
     {
-        LOG_ERROR("%s  is not exist!",service_name.c_str());
+        LOG_ERROR("%s  is not exist!", service_name.c_str());
         return;
     }
     // 获取服务对象
     auto itm = it->second._methodMap.find(method_name);
     if (itm == it->second._methodMap.end())
     {
-        LOG_ERROR("%s:%s  is not exist!",service_name.c_str(),method_name.c_str());
+        LOG_ERROR("%s:%s  is not exist!", service_name.c_str(), method_name.c_str());
         return;
     }
     google::protobuf::Service *service = it->second._service;       // 获取serice对象  new UserService
@@ -116,7 +136,7 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr &conn, muduo::net
     google::protobuf::Message *request = service->GetRequestPrototype(method).New();
     if (!request->ParseFromString(args_str)) // 从args_str中解析参数
     {
-        LOG_ERROR("request parse error! content:%s",args_str.c_str());
+        LOG_ERROR("request parse error! content:%s", args_str.c_str());
     }
     // 获取响应对象
     google::protobuf::Message *response = service->GetResponsePrototype(method).New();

@@ -311,4 +311,78 @@ src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
  /usr/include/arpa/inet.h \
- /home/guagua/Desktop/mprpc/src/include/mprpcontrller.h
+ /home/guagua/Desktop/mprpc/src/include/mprpcontrller.h \
+ /home/guagua/Desktop/mprpc/src/include/rpcprovider.h \
+ /usr/local/include/muduo/net/TcpServer.h \
+ /usr/local/include/muduo/base/Atomic.h \
+ /usr/local/include/muduo/base/noncopyable.h \
+ /usr/local/include/muduo/base/Types.h \
+ /usr/local/include/muduo/net/TcpConnection.h \
+ /usr/local/include/muduo/base/StringPiece.h \
+ /usr/local/include/muduo/net/Callbacks.h \
+ /usr/local/include/muduo/base/Timestamp.h \
+ /usr/local/include/muduo/base/copyable.h \
+ /usr/local/include/boost/operators.hpp \
+ /usr/local/include/boost/config.hpp \
+ /usr/local/include/boost/config/user.hpp \
+ /usr/local/include/boost/config/detail/select_compiler_config.hpp \
+ /usr/local/include/boost/config/compiler/gcc.hpp \
+ /usr/local/include/boost/config/detail/select_stdlib_config.hpp \
+ /usr/local/include/boost/config/stdlib/libstdcpp3.hpp \
+ /usr/local/include/boost/config/detail/select_platform_config.hpp \
+ /usr/local/include/boost/config/platform/linux.hpp \
+ /usr/local/include/boost/config/detail/posix_features.hpp \
+ /usr/local/include/boost/config/detail/suffix.hpp \
+ /usr/local/include/boost/config/helper_macros.hpp \
+ /usr/local/include/boost/detail/workaround.hpp \
+ /usr/local/include/boost/config/workaround.hpp \
+ /usr/local/include/boost/core/addressof.hpp \
+ /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
+ /usr/include/c++/13/array /usr/include/c++/13/compare \
+ /usr/local/include/muduo/net/Buffer.h \
+ /usr/local/include/muduo/net/Endian.h \
+ /usr/local/include/muduo/net/InetAddress.h \
+ /usr/local/include/boost/any.hpp /usr/local/include/boost/type_index.hpp \
+ /usr/local/include/boost/type_index/stl_type_index.hpp \
+ /usr/local/include/boost/type_index/type_index_facade.hpp \
+ /usr/local/include/boost/container_hash/hash_fwd.hpp \
+ /usr/local/include/boost/static_assert.hpp \
+ /usr/local/include/boost/throw_exception.hpp \
+ /usr/local/include/boost/exception/exception.hpp \
+ /usr/local/include/boost/current_function.hpp \
+ /usr/local/include/boost/core/demangle.hpp /usr/include/c++/13/cxxabi.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/cxxabi_tweaks.h \
+ /usr/local/include/boost/type_traits/conditional.hpp \
+ /usr/local/include/boost/type_traits/is_const.hpp \
+ /usr/local/include/boost/type_traits/integral_constant.hpp \
+ /usr/local/include/boost/type_traits/is_reference.hpp \
+ /usr/local/include/boost/type_traits/is_lvalue_reference.hpp \
+ /usr/local/include/boost/type_traits/is_rvalue_reference.hpp \
+ /usr/local/include/boost/type_traits/is_volatile.hpp \
+ /usr/local/include/boost/type_traits/remove_cv.hpp \
+ /usr/local/include/boost/type_traits/remove_reference.hpp \
+ /usr/local/include/boost/type_traits/decay.hpp \
+ /usr/local/include/boost/type_traits/is_array.hpp \
+ /usr/local/include/boost/type_traits/is_function.hpp \
+ /usr/local/include/boost/type_traits/detail/config.hpp \
+ /usr/local/include/boost/version.hpp \
+ /usr/local/include/boost/type_traits/detail/is_function_cxx_11.hpp \
+ /usr/local/include/boost/type_traits/remove_bounds.hpp \
+ /usr/local/include/boost/type_traits/remove_extent.hpp \
+ /usr/local/include/boost/type_traits/add_pointer.hpp \
+ /usr/local/include/boost/type_traits/add_reference.hpp \
+ /usr/local/include/boost/utility/enable_if.hpp \
+ /usr/local/include/boost/core/enable_if.hpp \
+ /usr/local/include/boost/type_traits/is_same.hpp \
+ /usr/local/include/muduo/net/EventLoop.h \
+ /usr/local/include/muduo/base/Mutex.h \
+ /usr/local/include/muduo/base/CurrentThread.h \
+ /usr/local/include/muduo/net/TimerId.h \
+ /home/guagua/Desktop/mprpc/src/include/logger.h \
+ /home/guagua/Desktop/mprpc/src/include/lockqueue.h \
+ /usr/include/c++/13/queue /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
+ /usr/include/c++/13/bits/stl_queue.h /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h \
+ /usr/include/c++/13/condition_variable
